@@ -1,0 +1,249 @@
+nombre: datosYBioXNombre
+url: /ServiciosIDGuatemala/ConsultaV2/datosYBioXNombre
+metodo: POST
+autorizacion: Application Bearer Token
+descripcion: >-
+  Servicio rest que consulta datos y biométricos del cliente mediante el nombre
+entrada:
+  content_type: application/x-www-form-urlencoded
+  parametros:
+    - nombre: ipAutenticacion
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Ip de donde se consumirá el servicio
+      ejemplo: |
+        ipAutenticacion=ip desde donde consumiran
+    - nombre: usuarioAutenticacion
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Usuario asignado
+      ejemplo: |
+        usuarioAutenticacion=usuario asignado
+    - nombre: nombre
+      tipo_dato: String
+      nulo: No
+      longitud_maxima: 50
+      descripcion: |
+        Nombre del cliente
+      ejemplo: |
+        Nombre=IRMA PATRICIA
+    - nombre: apellidoPaterno
+      tipo_dato: String
+      nulo: No
+      longitud_maxima: 50
+      descripcion: |
+        apellidoPaterno del cliente
+      ejemplo: |
+        apellidoPaterno=DE LA LUZ
+    - nombre: apellidoMaterno
+      tipo_dato: String
+      nulo: Yes
+      longitud_maxima: 50
+      descripcion: |
+        Ip de donde se consumirá el servicio
+      ejemplo: |
+        apellidoMaterno=PAZ
+    - nombre: fechaNacimiento
+      tipo_dato: String
+      nulo: Yes
+      descripcion: |
+        Fecha de nacimiento “yyyy-mm-dd
+      ejemplo: |
+        fechaNacimiento=1977-04-06
+    - nombre: altaUnica
+      tipo_dato: String
+      nulo: Yes
+      longitud_maxima: 1
+      descripcion: |
+        Valor de alta única
+      ejemplo: |
+        altaUnica=”X”
+
+
+  ejemplos:
+    - nombre=IRMA PATRICIA&apellidoPaterno=DE LA LUZ&apellidoMaterno=PAZ&fechaNacimiento=1977-04-06&ipAutenticacion= ip desde donde consumiran&usuarioAutenticacion=usuario asignado
+
+salida:
+  content_type: application/json
+  parametros:
+    - nombre: Authorization
+      tipo_dato: String
+      descripcion: |
+        Autorización por token
+      ejemplo: |
+        Authorization =Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c3VhcmlvQXV0ZW50aWNhY2lvbiI6IlVTUlNJU0NSRURJVE9HVUEiLCJpcEF1dGVudGljYWNpb24iOiIxMC4xMTIuOTkuMjM1Iiwic3ViIjoiVVNSU0lTQ1JFRElUT0dVQSIsImp0aSI6IjRiNzY5NjE1LWM0ZDItNGMyOC04YTZhLWY2N2ZhMTRmYWZhYiIsImlhdCI6MTYwNDk0MDIyMCwiZXhwIjoxNjA0OTQwNTIwfQ.OR7SmP1PcWo-jWlDsuM2GRCyFeL4S6RL6GlXVdVvByo
+  
+
+  ejemplos:
+    - descripcion: Salida 1, exito
+      ejemplo:
+        {
+          "lstResponse": [
+            {
+              "nombre": "IRMA PATRICIA",
+              "apePaterno": "DE LA LUZ",
+              "apeMaterno": "PAZ",
+              "sexo": "M",
+              "tipoPersona": "FI",
+              "fecNacimiento": "1977-04-06 00:00:00.0",
+              "rfc": "85907-9",
+              "idIdentificacion": "14",
+              "folioIdentificacion": "2222624190904",
+              "curp": "",
+              "nacionalidad": "2",
+              "email": "@",
+              "calle": "LIMONES",
+              "numExterior": "80",
+              "numInterior": "",
+              "idColonia": "0",
+              "colonia": "CASAS EL CASTILLO",
+              "poblacion": "GUATEMALA  ZONA 10",
+              "estado": "GUATEMALA",
+              "cp": "01010",
+              "telefono": "",
+              "lada": "",
+              "extension": "",
+              "idBiometrico": "0101032746455",
+              "mano": "1",
+              "dedo": "5",
+              "huellaDigital": "3082025F308201C80482018F3082018B3034302F02010302010204106C09ADF27B0642F2963D4DA140E231440410479D6AD1B9A811D2A7A70040339F131702030200000201010482014900E81401C82AE3735CDE55137FA41E1329D508F214122E039BA27A24DDDBCD163045DC3FBF13D9CD059B4142051B242F40A3A8B6C370365D89C25FB4924A4C59B661C221EACCB7DC8FE64FE4D3A00997F96C421089D9CF9D8292A268595083DD45CB9BDF046DA147EF06D2366D038CC0E3F2F2A49BDFA93BEFF1E15D05C73AB21F30E427C45F308A184AE20BF24488DE51F46CF6196BB416B8684F62B0C315066942BFF4DB66DA723969739830E472942323DE7F63368B62427236D1517859C4F9597529E494D5178AB85C7202A40F1669C7C45ADE08E5C59732FDB08EB1C5AF5BD4B391356026959E648B58E852388D9A819EFAAF02D2C2978210E4303EA22A5B40F7045DAE9C64556694EFBD9D20565BF15D49D11069226F00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002010002010004000311007148E8EC36634FBAA000FB23AE35EC04031100A1C21100CAA111D28B020090270750C4170D3136303831353134333035335A300D06092A864886F70D0101040500038181007F783F58E04FC84AD64890826E3434F7978668D743B8869F3E2BF81D0A59E958DF546EF24FE961FA89CFFB21A6CC9802B35B848ED1490BC3BD3F200980FE50A20BAD0EBFA1B2A48D4431BB0B16F73E796A8DDB615F1CBA3F50E838CCA81E1DC7F964334525265E4DF4AE82A1B073A13EEC17F5C1E00BD1ECA438C68824A45203",
+              "foto": "/2/1/327/46436.b64",
+              "fechaAlta": "2015-02-04 00:00:00.0",
+              "claveRegistroCU": "",
+              "idNegocio": "1",
+              "idTienda": "327",
+              "idCliente": "195739",
+              "digitoVerificador": "2",
+              "idNegocioLCR": "1",
+              "idTiendaLCR": "327",
+              "idClienteLCR": "195739",
+              "digitoVerificadorLCR": "2",
+              "pais": "2",
+              "canal": "1",
+              "sucursal": "327",
+              "folio": "46436",
+              "numTarjeta": "",
+              "paisGestorLCR": "2",
+              "canalGestorLCR": "1",
+              "sucGestoraLCR": "327",
+              "statusLCR": "3",
+              "fechaAltaLCR": "2015-02-04 18:33:43.0",
+              "statusCENCAA": "3",
+              "fechaAltaCENCAA": "2015-02-04 18:33:43.0",
+              "statusCENAE": "",
+              "fechaAltaCENAE": "",
+              "clienteAlnova": "",
+              "cuenta": "",
+              "sucursalGestora": "",
+              "tipoCuentaCENCAA": "",
+              "tipoProducto": "",
+              "tipoSubproducto": "",
+              "paisGestor": "",
+              "canalGestor": "",
+              "clabe": "",
+              "statusCWUE": "0",
+              "fechaAltaCWUE": "",
+              "fechaAltaCENCSA": "",
+              "cuentaSerfin": "",
+              "documentoSerfin": "",
+              "cteAmigo": "",
+              "manoAdic": "1",
+              "dedoAdic": "4",
+              "huellaDigitalADIC": "3082025F308201C80482018F3082018B3034302F02010302010204106C09ADF27B0642F2963D4DA140E231440410479D6AD1B9A811D2A7A70040339F131702030200000201010482014900E81401C82AE3735CDE55137FA41E1329D508F214122E039BA27A24DDDBCD163045DC3FBF13D9CD059B4142051B242F40A3A8B6C370365D89C25FB4924A4C59B661C221EACCB7DC8FE64FE4D3A00997F96C421089D9CF9D8292A268595083DD45CB9BDF046DA147EF06D2366D038CC0E3F2F2A49BDFA93BEFF1E15D05C73AB21F30E427C45F308A184AE20BF24488DE51F46CF6196BB416B8684F62B0C315066942BFF4DB66DA723969739830E472942323DE7F63368B62427236D1517859C4F9597529E494D5178AB85C7202A40F1669C7C45ADE08E5C59732FDB08EB1C5AF5BD4B391356026959E648B58E852388D9A819EFAAF02D2C2978210E4303EA22A5B40F7045DAE9C64556694EFBD9D20565BF15D49D11069226F00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002010002010004000311007148E8EC36634FBAA000FB23AE35EC04031100A1C21100CAA111D28B020090270750C4170D3136303831353134333035335A300D06092A864886F70D0101040500038181007F783F58E04FC84AD64890826E3434F7978668D743B8869F3E2BF81D0A59E958DF546EF24FE961FA89CFFB21A6CC9802B35B848ED1490BC3BD3F200980FE50A20BAD0EBFA1B2A48D4431BB0B16F73E796A8DDB615F1CBA3F50E838CCA81E1DC7F964334525265E4DF4AE82A1B073A13EEC17F5C1E00BD1ECA438C68824A45203",
+              "edoCivil": "1",
+              "ocupacion": "73",
+              "tarjeta": "T",
+              "empGs": "0",
+              "tipoCuenta": "",
+              "amigo": "0",
+              "statusHuellas": "1"
+            }
+          ],
+          "issue": {
+            "issue": false,
+            "fieldIssues": [ ]
+          }
+        }
+
+
+    - descripcion: Salida 2
+      ejemplo:
+        {
+          "lstResponse": [ ],
+          "issue": {
+            "issue": true,
+            "fieldIssues": [
+              {
+                "errorNumber": "2",
+                "field": "Cliente",
+                "message": "El cliente no existe"
+              }
+            ]
+          }
+        }
+
+
+    - descripcion: EJEMPLO DATOS DE ENTRADA
+        - Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c3VhcmlvQXV0ZW50aWNhY2lvbiI6IlVTUlNJU0NSRURJVE9HVUEiLCJpcEF1dGVudGljYWNpb24iOiIxMC4xMTIuOTkuMjM1Iiwic3ViIjoiVVNSU0lTQ1JFRElUT0dVQSIsImp0aSI6IjRiNzY5NjE1LWM0ZDItNGMyOC04YTZhLWY2N2ZhMTRmYWZhYiIsImlhdCI6MTYwNDk0MDIyMCwiZXhwIjoxNjA0OTQwNTIwfQ.OR7SmP1PcWo-jWlDsuM2GRCyFeL4S6RL6GlXVdVvByo
+
+    - descripcion: Salida 1, token expirado
+      ejemplo:
+        {
+          "Issue": {
+            "issue": true,
+            "fieldIssues": [
+              {
+                "errorNumber": "1",
+                "field": "Authorization",
+                "message": "Token expirado"
+              }
+            ]
+          }
+        }
+
+    - descripcion: Salida 2, validación de parametros
+      ejemplo:
+        {
+          "Issue": {
+            "issue": true,
+            "fieldIssues": [
+              {
+                "errorNumber": "1",
+                "field": "Authorization",
+                "message": "Se requiere header de Autorizacion"
+              }
+            ]
+          }
+        }
+
+    - descripcion: salida 3, entrada sin token
+      ejemplo:
+        {
+          "Issue": {
+            "issue": true,
+            "fieldIssues": [
+              {
+                "errorNumber": "1",
+                "field": "Authorization",
+                "message": "El header de Autorizacion no es valido"
+              }
+            ]
+          }
+        }
+
+    - descripcion: salida 4, token erroneo
+      ejemplo:
+        {
+          "Issue": {
+            "issue": true,
+            "fieldIssues": [
+              {
+                "errorNumber": "2",
+                "field": "Authorization",
+                "message": "Token mal formado"
+              }
+            ]
+          }
+        }

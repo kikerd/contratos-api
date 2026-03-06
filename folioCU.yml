@@ -1,0 +1,288 @@
+nombre: folioCU
+url: /ServiciosIDGuatemala/AltaV2/folioCU
+metodo: POST
+autorizacion: Application Bearer Token
+descripcion: >-
+  Servicio REST para dar de alta el folio.
+entrada:
+  content_type: application/x-www-form-urlencoded
+  parametros:
+    - nombre: ipAutenticacion
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Ip de donde se consumirá el servicio
+      ejemplo: |
+        ipAutenticacion=ip desde donde consumiran
+
+    - nombre: usuarioAutenticacion
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Usuario asignado
+      ejemplo: |
+        usuarioAutenticacion=usuario asignado
+
+    - nombre: pais
+      tipo_dato: String
+      nulo: No
+      longitud_maxima: 3
+      descripcion: |
+        Pais del CU
+      ejemplo: |
+        pais=1
+    - nombre: canal
+      tipo_dato: String
+      nulo: No
+      longitud_maxima: 3
+      descripcion: |
+        Canal donde nació el CU
+      ejemplo: |
+        canal=3
+
+    - nombre: sucursal
+      tipo_dato: String
+      nulo: No
+      longitud_maxima: 5
+      descripcion: |
+        Sucursal donde nació el cliente
+      ejemplo: |
+        sucursal=8578
+
+    - nombre: nombre
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        NOMBRE
+      ejemplo: |
+        JESUS
+    
+
+    - nombre: apellidoPaterno
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        apPaterno
+      ejemplo: |
+        Cruz
+
+    - nombre: apellidoMaterno
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        apMaterno
+      ejemplo: |
+        Sanchez
+
+    - nombre: fechaNacimiento
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Fec nacimiento
+      ejemplo: |
+        1990-12-16
+
+    - nombre: coincidencias
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Coincidencias
+      ejemplo: |
+        4-1-6266-75857
+
+    - nombre: empSolicita
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Empleado que solicita
+      ejemplo: |
+        "99005"
+
+    - nombre: contenido
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Foto
+      ejemplo: |
+        foto
+
+    - nombre: idNacionalidad
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Id de nacionalidad
+      ejemplo: |
+        "449"
+    - nombre: tipificacion
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Tipificación
+      ejemplo: |
+        "1"
+    - nombre: tipoFolio
+      tipo_dato: String
+      nulo: No
+      descripcion: |
+        Folio de identificacion
+      ejemplo: |
+        "13245678912"
+
+
+  ejemplos:
+    - pais=1&canal=3&sucursal=8578& nombre=samuel& apellidoPaterno=dominguez& apellidoMaterno=escalona& fechaNacimiento=1990-12-25& coincidencias= 4-1-6266-75857& empSolicita=99005& contenido=LA FOTO& idNacionalidad=449& tipificacion=40689& tipoFolio=40689&ipAutenticacion= ip desde donde consumiran &usuarioAutenticacion= usuario asignado
+
+salida:
+  content_type: application/json
+  parametros:
+    - nombre: Authorization
+      tipo_dato: String
+      descripcion: |
+        Autorización por token
+      ejemplo: |
+        Authorization =Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c3VhcmlvQXV0ZW50aWNhY2lvbiI6IlVTUlNJU0NSRURJVE9HVUEiLCJpcEF1dGVudGljYWNpb24iOiIxMC4xMTIuOTkuMjM1Iiwic3ViIjoiVVNSU0lTQ1JFRElUT0dVQSIsImp0aSI6IjRiNzY5NjE1LWM0ZDItNGMyOC04YTZhLWY2N2ZhMTRmYWZhYiIsImlhdCI6MTYwNDk0MDIyMCwiZXhwIjoxNjA0OTQwNTIwfQ.OR7SmP1PcWo-jWlDsuM2GRCyFeL4S6RL6GlXVdVvByo
+  
+
+  ejemplos:
+    - descripcion: Salida 1, exito
+      ejemplo:
+        {
+          "objResponse": {
+            "folioGenerado": "C01940000019200807"
+          },
+          "logID": null,
+          "issue": {
+            "issue": false,
+            "fieldIssues": [ ]
+          }
+        }
+
+
+
+    - descripcion: Salida 2
+      ejemplo:
+        {
+          "objResponse": null,
+          "logID": "LOGID-[4225198436:1711883034] ",
+          "issue": {
+            "issue": true,
+            "fieldIssues": [
+              {
+                "errorNumber": "1",
+                "field": "tipificacion",
+                "message": "Not characters"
+              }
+            ]
+          }
+        }
+
+
+
+    - descripcion: EJEMPLO DATOS DE ENTRADA
+        - Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c3VhcmlvQXV0ZW50aWNhY2lvbiI6IlVTUlNJU0NSRURJVE9HVUEiLCJpcEF1dGVudGljYWNpb24iOiIxMC4xMTIuOTkuMjM1Iiwic3ViIjoiVVNSU0lTQ1JFRElUT0dVQSIsImp0aSI6IjRiNzY5NjE1LWM0ZDItNGMyOC04YTZhLWY2N2ZhMTRmYWZhYiIsImlhdCI6MTYwNDk0MDIyMCwiZXhwIjoxNjA0OTQwNTIwfQ.OR7SmP1PcWo-jWlDsuM2GRCyFeL4S6RL6GlXVdVvByo
+
+    - descripcion: Salida 1, token expirado
+      ejemplo:
+        {
+
+          "Issue": {
+
+            "issue": true,
+
+            "fieldIssues": [
+
+              {
+
+                "errorNumber": "1",
+
+                "field": "Authorization",
+
+                "message": "Token expirado"
+
+              }
+
+            ]
+
+          }
+
+        }
+
+
+    - descripcion: Salida 2, validación de parametros
+      ejemplo:
+        {
+
+          "Issue": {
+
+            "issue": true,
+
+            "fieldIssues": [
+
+              {
+
+                "errorNumber": "1",
+
+                "field": "Authorization",
+
+                "message": "Se requiere header de Autorizacion"
+
+              }
+
+            ]
+
+          }
+
+        }
+
+    - descripcion: salida 3, entrada sin token
+      ejemplo:
+        {
+
+          "Issue": {
+
+            "issue": true,
+
+            "fieldIssues": [
+
+              {
+
+                "errorNumber": "1",
+
+                "field": "Authorization",
+
+                "message": "El header de Autorizacion no es valido"
+
+              }
+
+            ]
+
+          }
+
+        }
+
+
+    - descripcion: salida 4, token erroneo
+      ejemplo:
+        {
+
+          "Issue": {
+
+            "issue": true,
+
+            "fieldIssues": [
+
+              {
+
+                "errorNumber": "2",
+
+                "field": "Authorization",
+
+                "message": "Token mal formado"
+
+              }
+
+            ]
+
+          }
+
+        }
